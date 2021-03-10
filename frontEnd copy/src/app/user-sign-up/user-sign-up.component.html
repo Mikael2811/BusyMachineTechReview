@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<div class="form-container sign-in-container" style ="margin-top: 50px;">
+    <form *ngIf="signUpForm" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="row" style="width: 70%;"> 
+            <div class="col-md-6">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" placeholder="First Name" required/>
+            </div>
+            <div class="col-md-6">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" placeholder="Last Name" required />
+            </div>     
+        </div>
+        <div class="row" style="width: 70%;"> 
+            <div class="col-md-6">
+                <label>Email</label>
+                <input type="text" formControlName="email" placeholder="Email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required/>
+            </div>
+            <div class="col-md-6">
+                <label>Password</label>
+                <input type="password" formControlName="password" placeholder="Password" required />
+            </div>     
+        </div>
+        <br />
+        <div class="row" style="margin-left: 205px;">
+            <button type="submit" [disabled]="!this.signUpForm.valid">Sign Up</button>
+        </div>
+    </form>
+</div>
